@@ -18,22 +18,26 @@ Include this plugin JS files on your page from the dist folder after Leaflet lib
 ### Usage
 
 ``` js
-// Create a new renderer as follows:
-var map = new L.Map('map', {
-    fullscreenControl: true,
-    // OR
-    fullscreenControl: {
-        pseudoFullscreen: false // if true, fullscreen to page width and height
-    }
-});
+// Create a new renderer as follows (use any options as necessary):
+var streetLabelsRenderer = new L.StreetLabels({
+      collisionFlg : true,
+      propertyName : 'name',
+      showLabelIf: function(layer) {
+        return true; //layer.properties.type == "primary";
+      },
+      fontStyle: {
+        dynamicFontSize: false,
+        fontSize: 10,
+        fontSizeUnit: "px",
+        lineWidth: 4.0,
+        fillStyle: "black",
+        strokeStyle: "white",
+      },
+    })
 
 // Create a new map and attach the renderer created above:
 var map = new L.Map('map', {
-    fullscreenControl: true,
-    // OR
-    fullscreenControl: {
-        pseudoFullscreen: false // if true, fullscreen to page width and height
-    }
+    renderer : streetLabelsRenderer, //Custom Canvas Renderer
 });
 
 ### Building
