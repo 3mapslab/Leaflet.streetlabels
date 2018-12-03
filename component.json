@@ -1,0 +1,13 @@
+{
+  "name": "Leaflet.streetlabels",
+  "repo": "triedeti/Leaflet.streetlabels",
+  "description": "Display the street labels following polylines for Leaflet",
+  "version": "0.0.0",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "src/Leaflet.streetlabels.js"
+  ]
+}

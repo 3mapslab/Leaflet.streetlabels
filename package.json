@@ -1,0 +1,31 @@
+{
+  "name": "leaflet-streetlabels",
+  "version": "1.0.0",
+  "description": "Display the street labels following polylines for Leaflet",
+  "main": "dist/Leaflet.streetlabels.js",
+  "directories": {
+    "example": "demo"
+  },
+  "scripts": {
+    "build": "npm install && npm audit fix --force && uglifyjs src/Leaflet.streetlabels.js -o dist/Leaflet.streetlabels.js && uglifyjs src/Leaflet.streetlabels.js -m -c -o dist/Leaflet.streetlabels.min.js",
+    "test": "jshint src/Leaflet.streetlabels.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/triedeti/Leaflet.streetlabels.git"
+  },
+  "keywords": [
+    "leaflet",
+    "maps",
+    "street",
+    "labels",
+    "label"
+  ],
+  "devDependencies": {
+    "jshint": "^2.9.6",
+    "uglify-js": "^3.4.9"
+  },
+  "author": "Jorge Santos",
+  "license": "ISC",
+  "readmeFilename": "README.md"
+}
