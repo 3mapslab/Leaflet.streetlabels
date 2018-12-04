@@ -20,6 +20,12 @@ L.StreetLabels = L.LabelTextCollision
                     strokeStyle: "white",
                 },
             },
+			
+			initialize: function (options) {
+				L.LabelTextCollision.prototype.initialize.call(this, options);
+				L.Util.stamp(this);
+				this._layers = this._layers || {};
+			},
 
             _initContainer : function(options) {
                 L.LabelTextCollision.prototype._initContainer.call(this, options);
@@ -35,7 +41,9 @@ L.StreetLabels = L.LabelTextCollision
             },
 
             _text : function(ctx, layer) {
+				
                 if (layer && layer.feature && layer.feature.properties && layer.feature.properties[this.options.propertyName] !== 'undefined') {
+					
                     if (this.options.showLabelIf) {
                         if (this.options.showLabelIf.call(this,layer.feature) === false) {
                             return;
@@ -44,23 +52,21 @@ L.StreetLabels = L.LabelTextCollision
                     
                     var layerText = layer.feature.properties[this.options.propertyName];
                     ctx.globalAlpha = 1;
-
-                    var p = layer._point;
+                    var p;
                     var textPoint;
 
-                    if (p === 'undefined') {
-                        // polygon or polyline
-                        if (layer._parts.length === 0 || layer._parts[0].length === 0) {
-                            return;
-                        }
+					// polygon or polyline
+					if (layer._parts.length === 0 || layer._parts[0].length === 0) {
+						return;
+					}
 
-                        if(layer instanceof L.Polygon && this._map.hasLayer(layer)) {
-                            p = this._getCentroid(layer);
-                        }
-                        else {
-                            p = this._getCenter(layer._parts[0]);
-                        }
-                    }
+					if(layer instanceof L.Polygon && this._map.hasLayer(layer)) {
+						p = this._getCentroid(layer);
+					}
+					else {
+						p = this._getCenter(layer._parts[0]);
+					}
+					
                     if (!p) {
                         return;
                     }
@@ -82,7 +88,7 @@ L.StreetLabels = L.LabelTextCollision
                     }
 
                     ctx.font = fontSize + this.options.fontStyle.fontSizeUnit + " 'Helvetica Neue',Helvetica,Arial,sans-serif";
-
+					
                     // Collision detection
                     var textWidth = (ctx.measureText(layerText).width) + p.x;// + offsetX;
 
