@@ -1,1 +1,5 @@
+title: Leaflet.streetlabels
+description: Display the street labels following polylines for Leaflet
+show_downloads: true
+google_analytics:
 theme: jekyll-theme-cayman
