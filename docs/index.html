@@ -3,3 +3,45 @@ layout: default
 ---
 
 <img src="https://triedeti.github.io/Leaflet.streetlabels/img/screenshot.png">
+
+<div id='map'></div>
+<script src="https://unpkg.com/leaflet@1.0.0/dist/leaflet-src.js"></script>
+  <script src='https://rawcdn.githack.com/Viglino/Canvas-TextPath/9a757d745071e0eaf2440a1d02117dad38f5b6dd/ctxtextpath.js'></script>
+  <script src='https://rawcdn.githack.com/yakitoritabetai/Leaflet.LabelTextCollision/90fe755cc7ec5d97b71e2e953464fa5369d6e655/dist/L.LabelTextCollision.js'></script>
+  <script src='src/Leaflet.streetlabels.js'></script>
+  <script src='demo/oporto.js'></script>
+  <script src='demo/lisbon.js'></script>
+  <script>
+    var streetLabelsRenderer = new L.StreetLabels({
+      collisionFlg : true,
+      propertyName : 'name',
+      showLabelIf: function(layer) {
+        return true; //layer.properties.type == "primary";
+      },
+      fontStyle: {
+        dynamicFontSize: false,
+        fontSize: 10,
+        fontSizeUnit: "px",
+        lineWidth: 4.0,
+        fillStyle: "black",
+        strokeStyle: "white",
+      },
+    });
+
+    //Load the oporto Dataset
+    var oportoDataset = L.geoJSON(oporto, {});
+
+    //Load the Lisbon Dataset
+    var lisbonDataset = L.geoJSON(lisbon, {});
+
+    var mapLayers = [oportoDataset, lisbonDataset];
+    var baseLayer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    });
+    var map = L.map('map', {
+      renderer : streetLabelsRenderer, //Custom Canvas Renderer
+      layers: [baseLayer, oportoDataset],
+    }).setView([41.14528695678644, -8.614008128643038], 18);
+
+    L.control.layers({"OSM":baseLayer}, {"OPorto Dataset":oportoDataset,"Lisbon Dataset":lisbonDataset,}).addTo(map);
+  </script>
