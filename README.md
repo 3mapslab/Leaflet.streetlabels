@@ -8,7 +8,7 @@ It's working with [Leaflet](http://leafletjs.com/) as a addition to the awesome 
 
 This project structure is a shameless copy of the Leaflet.fullscreen [Leaflet.fullscreen](https://github.com/Leaflet/Leaflet.fullscreen) by Leaflet.
 
-##Demo
+## Demo
 
 You can rush to the [demo here.](https://triedeti.github.io/Leaflet.streetlabels/)
 
