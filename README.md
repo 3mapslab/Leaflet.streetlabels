@@ -1,4 +1,4 @@
-![Leaflet.streetlabels](https://triedeti.github.io/Leaflet.streetlabels/img/demo.gif)
+![Leaflet.streetlabels](https://triedeti.github.io/Leaflet.streetlabels/img/screenshot.png)
 ============
 
 ## Leaflet.streetlabels
