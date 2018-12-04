@@ -6,14 +6,18 @@ A Leaflet plugin for showing street labels along polylines.
 
 It's working with [Leaflet](http://leafletjs.com/) as a addition to the awesome work done by yakitoritabetai [Leaflet.LabelTextCollision](https://github.com/yakitoritabetai/Leaflet.LabelTextCollision) and Viglino [Canvas-TextPath](Canvas-TextPath)
 
-This is a shameless copy of the project structure of [Leaflet.fullscreen](https://github.com/Leaflet/Leaflet.fullscreen) by Leaflet.
+This project structure is a shameless copy of the Leaflet.fullscreen [Leaflet.fullscreen](https://github.com/Leaflet/Leaflet.fullscreen) by Leaflet.
+
+##Demo
+
+You can rush to the [demo here.](https://triedeti.github.io/Leaflet.streetlabels/)
 
 
 ## Using this plugin
-Include this plugin JS files on your page from the dist folder after Leaflet library inclusion in the following order:
+Include this plugin JS file on your page from the dist folder after Leaflet library, Canvas-TextPath and Leaflet.LabelTextCollision as follows:
 * Canvas-TextPath [Download from Viglino/Canvas-TextPath](https://github.com/Viglino/Canvas-TextPath)
 * Leaflet.LabelTextCollision [Download from yakitoritabetai/Leaflet.LabelTextCollision](https://github.com/yakitoritabetai/Leaflet.LabelTextCollision)
-* Leaflet.streetlabels - Use either any version from the dist folder in this project
+* Leaflet.streetlabels - Use either the file inside the src/ directory, or the one in the dist/ folder
 
 ### Usage
 
