@@ -43,11 +43,11 @@ var streetLabelsRenderer = new L.StreetLabels({
 var map = new L.Map('map', {
     renderer : streetLabelsRenderer, //Custom Canvas Renderer
 });
-
+```
 ### Building
 
     npm install && npm run build
 
 ### Supported Leaflet Versions
 
-Leaflet 1.0 and later versions should be supported. Earlier versions probably won't work (not even tested anymore).
+Leaflet 1.0 and later versions should be supported. Earlier versions probably won\'t work (not even tested anymore).
