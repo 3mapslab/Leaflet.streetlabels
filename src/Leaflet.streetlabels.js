@@ -118,7 +118,7 @@ L.StreetLabels = L.LabelTextCollision
                     ctx.strokeText(layerText, p.x + offsetX - textLength / 2, p.y + offsetY);
                     ctx.fillText(layerText, p.x + offsetX - textLength / 2, p.y + offsetY);
                 }
-                if (layer instanceof L.Polyline) {
+                else if (layer instanceof L.Polyline) {
                     /**
                      * Render text alongside the polyline 
                      * **/
