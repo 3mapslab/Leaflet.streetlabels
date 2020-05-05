@@ -1,6 +1,6 @@
 {
   "name": "leaflet-streetlabels",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Display the street labels following polylines for Leaflet",
   "main": "dist/Leaflet.streetlabels.js",
   "directories": {
@@ -22,7 +22,7 @@
     "label"
   ],
   "devDependencies": {
-    "jshint": "^2.9.6",
+    "jshint": "^2.11.0",
     "uglify-js": "^3.4.9"
   },
   "author": "Jorge Santos",
