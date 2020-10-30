@@ -11,6 +11,7 @@ L.StreetLabels = L.LabelTextCollision
              */
             propertyName: 'name',
             showLabelIf: null,
+            interactive: true,
             fontStyle: {
                 dynamicFontSize: false,
                 fontSize: 10,

@@ -7,8 +7,6 @@ layout: default
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 <script
   src='https://rawcdn.githack.com/Viglino/Canvas-TextPath/9a757d745071e0eaf2440a1d02117dad38f5b6dd/ctxtextpath.js'></script>
-<script
-  src='https://rawcdn.githack.com/yakitoritabetai/Leaflet.LabelTextCollision/90fe755cc7ec5d97b71e2e953464fa5369d6e655/dist/L.LabelTextCollision.js'></script>
 <script src='https://raw.githack.com/triedeti/Leaflet.streetlabels/master/src/Leaflet.streetlabels.js'></script>
 <script src='demo/oporto.js'></script>
 <script src='demo/lisbon.js'></script>
@@ -31,13 +29,19 @@ layout: default
   });
 
   //Load the OPorto Dataset
-  var oportoDataset = L.geoJSON(oporto, {});
+  var oportoDataset = L.geoJSON(oporto, {
+    onEachFeature: onEachFeature
+  });
 
   //Load the Lisbon Dataset
-  var lisbonDataset = L.geoJSON(lisbon, {});
-  
+  var lisbonDataset = L.geoJSON(lisbon, {
+    onEachFeature: onEachFeature
+  });
+
   //Load the OPorto Civil Parishes Dataset
-  var oPortoParishesDataset = L.geoJSON(oporto_parishes, {});
+  var oPortoParishesDataset = L.geoJSON(oporto_parishes, {
+    onEachFeature: onEachFeature
+  });
 
   var baseLayer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -47,5 +51,17 @@ layout: default
     layers: [baseLayer, oportoDataset],
   }).setView([41.14528695678644, -8.614008128643038], 18);
 
-  L.control.layers({ "OSM": baseLayer }, { "OPorto Dataset": oportoDataset, "Lisbon Dataset": lisbonDataset,  "OPorto Parishes Dataset": oPortoParishesDataset }).addTo(map);
+  L.control.layers({ "OSM": baseLayer }, { "OPorto Dataset": oportoDataset, "Lisbon Dataset": lisbonDataset, "OPorto Parishes Dataset": oPortoParishesDataset }).addTo(map);
+
+  function onEachFeature(feature, layer) {
+    layer.on('mouseover', function (e) {
+      console.log('mouseover', e);
+    });
+    layer.on('click', function (e) {
+      console.log('click', e);
+    });
+    layer.on('mouseout', function (e) {
+      console.log('mouseout', e);
+    });
+  }
 </script>

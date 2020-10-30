@@ -7,7 +7,7 @@
     "example": "demo"
   },
   "scripts": {
-    "build": "npm install && npm audit fix --force && uglifyjs src/Leaflet.streetlabels.js -o dist/Leaflet.streetlabels.js && uglifyjs src/Leaflet.streetlabels.js -m -c -o docs/Leaflet.streetlabels.js",
+    "build": "npm install && npm audit fix --force && uglifyjs src/L.LabelTextCollision.js src/Leaflet.streetlabels.js -o dist/Leaflet.streetlabels.js && uglifyjs src/L.LabelTextCollision.js src/Leaflet.streetlabels.js -m -c -o docs/Leaflet.streetlabels.js",
     "test": "jshint src/Leaflet.streetlabels.js"
   },
   "repository": {
