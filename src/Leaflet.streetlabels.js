@@ -22,6 +22,58 @@ L.StreetLabels = L.LabelTextCollision
             },
         },
 
+        _handleMouseOut: function (e) {
+            var layer = this._hoveredLayer;
+            if (layer) {
+                // if we're leaving the layer, fire mouseout
+                //L.DomUtil.removeClass(this._container, 'leaflet-interactive');
+                this._map._mapPane.style.cursor = "grab";
+                this._fireEvent([layer], e, 'mouseout');
+                this._hoveredLayer = null;
+                this._mouseHoverThrottled = false;
+            }
+        },
+
+        _handleMouseHover: function (e, point) {
+            if (this._mouseHoverThrottled) {
+                return;
+            }
+
+            var layer, candidateHoveredLayer;
+
+            for (var order = this._drawFirst; order; order = order.next) {
+                layer = order.layer;
+                if (layer.options.interactive && layer._containsPoint(point)) {
+                    candidateHoveredLayer = layer;
+                }
+            }
+
+            if (candidateHoveredLayer !== this._hoveredLayer) {
+                this._handleMouseOut(e);
+
+                if (candidateHoveredLayer) {
+                    //console.log(this._map._mapPane);
+                    //L.DomUtil.addClass(this._map._mapPane, 'leaflet-interactive'); // change cursor
+                    this._map._mapPane.style.cursor = "pointer";
+                    this._fireEvent([candidateHoveredLayer], e, 'mouseover');
+                    this._hoveredLayer = candidateHoveredLayer;
+                }
+            }
+
+            if (this._hoveredLayer) {
+                this._fireEvent([this._hoveredLayer], e);
+            }
+
+            this._mouseHoverThrottled = true;
+            setTimeout(L.Util.bind(function () {
+                this._mouseHoverThrottled = false;
+            }, this), 32);
+        },
+
+        _fireEvent: function (layers, e, type) {
+            this._map._fireDOMEvent(e, type || e.type, layers);
+        },
+
         initialize: function (options) {
             L.LabelTextCollision.prototype.initialize.call(this, options);
             L.Util.stamp(this);

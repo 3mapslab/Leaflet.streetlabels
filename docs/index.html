@@ -43,15 +43,6 @@ layout: default
     onEachFeature: onEachFeature
   });
 
-  var baseLayer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-  });
-  var map = L.map('map', {
-    renderer: streetLabelsRenderer, //Custom Canvas Renderer
-    layers: [baseLayer, oportoDataset],
-  }).setView([41.14528695678644, -8.614008128643038], 18);
-
-  L.control.layers({ "OSM": baseLayer }, { "OPorto Dataset": oportoDataset, "Lisbon Dataset": lisbonDataset, "OPorto Parishes Dataset": oPortoParishesDataset }).addTo(map);
 
   function onEachFeature(feature, layer) {
     layer.on('mouseover', function (e) {
@@ -64,4 +55,15 @@ layout: default
       console.log('mouseout', e);
     });
   }
+
+  var baseLayer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+  });
+  var map = L.map('map', {
+    renderer: streetLabelsRenderer, //Custom Canvas Renderer
+    layers: [baseLayer, oportoDataset],
+  }).setView([41.14528695678644, -8.614008128643038], 18);
+
+  L.control.layers({ "OSM": baseLayer }, { "OPorto Dataset": oportoDataset, "Lisbon Dataset": lisbonDataset, "OPorto Parishes Dataset": oPortoParishesDataset }).addTo(map);
+
 </script>
