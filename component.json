@@ -1,6 +1,6 @@
 {
   "name": "Leaflet.streetlabels",
-  "repo": "triedeti/Leaflet.streetlabels",
+  "repo": "3mapslab/Leaflet.streetlabels",
   "description": "Display the street labels following polylines for Leaflet",
   "version": "0.0.0",
   "keywords": [],

@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/triedeti/Leaflet.streetlabels.git"
+    "url": "git://github.com/3mapslab/Leaflet.streetlabels.git"
   },
   "keywords": [
     "leaflet",

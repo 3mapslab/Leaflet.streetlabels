@@ -1,5 +1,5 @@
 
-![Leaflet.streetlabels](https://triedeti.github.io/Leaflet.streetlabels/img/screenshot.png?v=11032020)
+![Leaflet.streetlabels](https://3mapslab.github.io/Leaflet.streetlabels/img/screenshot.png?v=11032020)
 ============
 
 ## Leaflet.streetlabels
@@ -11,7 +11,7 @@ This project structure is a shameless copy of the Leaflet.fullscreen [Leaflet.fu
 
 ## Demo
 
-You can rush to the [demo here.](https://triedeti.github.io/Leaflet.streetlabels/)
+You can rush to the [demo here.](https://3mapslab.github.io/Leaflet.streetlabels/)
 
 
 ## Using this plugin
@@ -72,8 +72,8 @@ Please, fork this repository, make any changes and submit a Pull Request and we 
 The easiest way to seek support is by submiting an issue on this repo.
 Also, reach out to us at one of the following places!
 
-- Website at <a href="https://triedeti.pt" target="_blank">`TriedeTI`</a>
-- Twitter at <a href="https://twitter.com/TriedeTi" target="_blank">`@triedeti`</a>
-- Facebook at <a href="https://facebook.com/triedeti" target="_blank">`@triedeti`</a>
+- Website at <a href="https://3mapslab.pt" target="_blank">`3mapslab`</a>
+- Twitter at <a href="https://twitter.com/3mapslab" target="_blank">`@3mapslab`</a>
+- Facebook at <a href="https://facebook.com/3mapslab" target="_blank">`@3mapslab`</a>
 
 ---
