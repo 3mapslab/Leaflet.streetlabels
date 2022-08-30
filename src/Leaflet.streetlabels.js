@@ -165,6 +165,7 @@ L.StreetLabels = L.LabelTextCollision
 
                 ctx.fillStyle = this.options.fontStyle.fillStyle;
                 ctx.strokeStyle = this.options.fontStyle.strokeStyle;
+                ctx.lineJoin = "round";
 
                 if (layer instanceof L.Polygon || layer instanceof L.CircleMarker) {
                     var textLength = ctx.measureText(layerText).width;
